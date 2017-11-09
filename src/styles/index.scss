@@ -1,0 +1,24 @@
+*, :before, :after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.layout {
+  height: 100%;
+  overflow: auto;
+}
+
+@import "./home.scss";
+@import "./vendor/bootstrap/bootstrap.scss";
+@import "./mixins/button.scss";
+@import "./mixins/darkness.scss";

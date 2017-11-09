@@ -1,0 +1,26 @@
+.button {
+  border-radius: 30px;
+  background-color: #22d1d6;
+  color: #000;
+  height: 60px;
+  width: 300px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.125em;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8em;
+    letter-spacing: 0;
+  }
+  line-height: 60px;
+  display: inline-block;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.0125em;
+  &:hover {
+    background-color: #00ffff;
+    cursor: pointer;
+  }
+}
