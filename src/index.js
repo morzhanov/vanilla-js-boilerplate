@@ -4,6 +4,25 @@ require('./styles/index.scss')
 // require images and files
 require('./images/example.png')
 
+class Teller{
+	// working decorators from ES7
+	@log
+	tell(){
+		console.log('telling...')
+	}
+}
+
+function log(target, key, descriptor) {
+	console.log(target)
+	console.log(key)
+	console.log(descriptor)
+}
+
+window.onload = function () {
+	let t = new Teller()
+	t.tell()
+}
+
 // main app controller
 const Controller = {
   exampleHandler: function (ev) {
@@ -12,4 +31,5 @@ const Controller = {
 }
 
 // example of adding event handler to an element
-$('.example-class').addEventListener('click', Controller.exampleHandler)
+// using jquery
+$('#h').on('click', Controller.exampleHandler)
