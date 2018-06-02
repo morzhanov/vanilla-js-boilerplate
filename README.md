@@ -1,6 +1,6 @@
 # Java Script Boilerplate
 
-Java Script Boilerplate is an project that allows you to start new web project from scratch using vanilla javascript.
+Java Script Boilerplate allows you to start new web project from scratch using vanilla javascript.
 
 ## Installation
 
