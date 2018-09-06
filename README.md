@@ -30,12 +30,14 @@ Use these steps to install project
 
 # Main Technologies and libraries
 
-* Webpack 3
-* CSS\SCSS
-* Babel
-* ESLint
-* jQuery
-* Bootstrap
+- <a href="https://developer.mozilla.org/bm/docs/Web/JavaScript">Javascript</a>
+- <a href="https://jquery.com/">jQuery</a>
+- <a href="https://getbootstrap.com/">Bootstrap</a>
+- <a href="https://webpack.js.org/">Webpack 4</a>
+- <a href="https://eslint.org/">ESLint</a>
+- <a href="https://github.com/prettier/prettier">Prettier</a>
+- <a href="https://babeljs.io/">Babel</a>
+- <a href="https://sass-lang.com/">Sass</a>
 
 ## Contributing
 
