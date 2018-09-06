@@ -1,4 +1,6 @@
-# Java Script Boilerplate
+# Vanilla JS Boilerplate
+
+<img src="https://i.imgur.com/4SvrKpE.jpg?1"/>
 
 Java Script Boilerplate allows you to start new web project from scratch using vanilla javascript.
 
