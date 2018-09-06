@@ -28,7 +28,7 @@ Use these steps to install project
 * build - build app
 * build:win - same for Windows OS
 
-# Main Technologies and libraries
+# Main technologies and libraries
 
 - <a href="https://developer.mozilla.org/bm/docs/Web/JavaScript">Javascript</a>
 - <a href="https://jquery.com/">jQuery</a>
