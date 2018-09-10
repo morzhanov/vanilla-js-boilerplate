@@ -7,25 +7,25 @@ require('./images/example.png')
 class Teller {
   // working decorators from ES7
   @log
-  tell () {
+  tell() {
     console.log('telling...')
   }
 }
 
-function log (target, key, descriptor) {
+function log(target, key, descriptor) {
   console.log(target)
   console.log(key)
   console.log(descriptor)
 }
 
-window.onload = function () {
+window.onload = function() {
   let t = new Teller()
   t.tell()
 }
 
 // main app controller
 const Controller = {
-  exampleHandler: function (ev) {
+  exampleHandler: function(ev) {
     // do your magic
   }
 }
