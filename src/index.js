@@ -1,8 +1,5 @@
-// require main scss file
-require('./styles/index.scss')
-
-// require images and files
-require('./images/example.png')
+import './styles/index.scss'
+import './images/example.png'
 
 class Teller {
   // working decorators from ES7
@@ -12,20 +9,20 @@ class Teller {
   }
 }
 
-function log(target, key, descriptor) {
+const log = (target, key, descriptor) => {
   console.log(target)
   console.log(key)
   console.log(descriptor)
 }
 
-window.onload = function() {
+window.onload = () => {
   let t = new Teller()
   t.tell()
 }
 
 // main app controller
 const Controller = {
-  exampleHandler: function(ev) {
+  exampleHandler: ev => {
     // do your magic
   }
 }

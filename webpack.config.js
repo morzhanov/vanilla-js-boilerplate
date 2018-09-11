@@ -139,16 +139,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['bundle', 'babel_polyfill', 'vendor']
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false,
-    //     drop_console: true,
-    //     unsafe: true
-    //   },
-    //   output: {
-    //     comments: false
-    //   }
-    // }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({
