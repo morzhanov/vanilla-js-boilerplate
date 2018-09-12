@@ -1,7 +1,6 @@
 const path = require('path')
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -9,7 +8,7 @@ module.exports = {
   entry: {
     bundle: path.join(__dirname, '/src/index.js'),
     // Set up an ES6-ish environment
-    babel_polyfill: 'babel-polyfill',
+    babel_polyfill: '@babel/polyfill',
     vendor: ['jquery']
   },
   output: {
@@ -29,52 +28,34 @@ module.exports = {
   },
   module: {
     rules: [
-      // BABEL
+      // babel
       {
-        loader: 'babel-loader',
-
-        // Skip any files outside of your project's `src` directory
-        include: [path.resolve(__dirname, 'src')],
-
-        // Only run `.js` and `.jsx` files through Babel
-        test: /\.js?$/,
-
-        // Options to configure babel with
-        query: {
-          plugins: ['transform-runtime', 'transform-decorators-legacy'],
-          presets: ['es2015', 'stage-0']
-        }
+        test: /\.(js)?$/,
+        loaders: ['babel-loader'],
+        include: [path.resolve(__dirname, 'src')]
       },
       {
-        test: /\.css$/i,
-        use: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: {
+        test: /\.(css|scss|sass)$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
             loader: 'css-loader',
-            query: {
-              hashPrefix: 'package-name' + Date.now()
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
             }
           }
-        })
-      },
-      {
-        test: /\.(scss)$/i,
-        // using "loader" instead of newer "use"
-        loader: ExtractTextPlugin.extract({
-          loader: [
-            {
-              loader: 'css-loader',
-              query: {
-                importLoaders: 3,
-                minimize: true,
-                sourceMap: false
-              }
-            },
-            { loader: 'postcss-loader' },
-            { loader: 'resolve-url-loader' },
-            { loader: 'sass-loader' }
-          ]
-        })
+        ]
       },
       {
         test: /\.pug$/,
@@ -126,18 +107,12 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new ExtractTextPlugin({
-      filename: NODE_ENV === 'development' ? '[name].css' : '[hash:6].css',
-      allChunks: true
-    }),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '/src/views/index.html')
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['bundle', 'babel_polyfill', 'vendor']
+      template: path.join(__dirname, '/src/views/index.html'),
+      filename: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
