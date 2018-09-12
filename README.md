@@ -13,7 +13,7 @@ Use these steps to install project
 ## Usage
 
 * Uses webpack 4 to build your project. 
-* Uses Babel to compile ES6 javascript. 
+* Uses Babel to compile ES7 javascript. 
 * Allows you to use Pug templates in your applications. 
 * You can use SASS\SCSS within this boilerplate.
 * Check your code with ESLint.
