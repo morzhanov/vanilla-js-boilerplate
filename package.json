@@ -1,8 +1,9 @@
 {
   "name": "js-bolierplate",
   "version": "2.0.0",
-  "description": "",
   "main": "src/index.js",
+  "author": "Vlad Morzhanov",
+  "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server .",
     "watch": "webpack --watch",
@@ -12,8 +13,6 @@
     "build:win": "./node_modules/.bin/webpack .",
     "clean": "rm -rf target"
   },
-  "author": "Vlad Morzhanov",
-  "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1"
