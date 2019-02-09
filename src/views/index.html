@@ -1,19 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vanilla js boilerplate</title>
+    <meta name="description" content="Vailla js boilerplate." />
+    <meta name="keywords" content="atrucheks,tests,blood,health,checks" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="<%- require('../favicon/apple-icon-60x60.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="<%- require('../favicon/apple-icon-72x72.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="<%- require('../favicon/apple-icon-76x76.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="<%- require('../favicon/apple-icon-114x114.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="<%- require('../favicon/apple-icon-120x120.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="<%- require('../favicon/apple-icon-144x144.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="<%- require('../favicon/apple-icon-152x152.png') %>"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="<%- require('../favicon/apple-icon-180x180.png') %>"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="<%- require('../favicon/android-icon-192x192.png') %>"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%- require('../favicon/favicon-32x32.png') %>"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="<%- require('../favicon/favicon-96x96.png') %>"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%- require('../favicon/favicon-16x16.png') %>"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Vanilla JS Boilerplate</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="<%- require('../images/favicon/favicon-32x32.png') %>">
-    <link rel="icon" type="image/png" sizes="96x96" href="<%- require('../images/favicon/favicon-96x96.png') %>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%- require('../images/favicon/favicon-16x16.png') %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-</head>
-
-<body>
-    <div class="layout home">
-        <h1 class="title" id="h">Vanilla JS Boilerplate</h1>
+  <body>
+    <div class="layout">
+      <header>
+        <div class="container">
+          <img class="logo" src="<%- require('../images/example.png') %>" />
+          <ul class="right">
+            <li>
+              <a href="https://www.facebook.com" target="_blanc"
+                ><i class="facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blanc"
+                ><i class="twitter"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com" target="_blanc"
+                ><i class="instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="main-content col-md-6 col-sm-12">
+              <p class="coming"><span class="bullet"></span>Example</p>
+              <h1>H1</h1>
+              <p class="description">
+                Description text
+              </p>
+            </div>
+            <div class="main-image col-md-6 col-sm-12">
+              <p>Text</p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>Copyright ©Vanilla js boilerplate 2019. All Rights Reserved</p>
+      </footer>
     </div>
-</body>
-
+    <div class="overlay" data-backdrop data-modal-close id="modal">
+      <div class="modal">
+        <div class="modal__header">
+          <i id="close-modal" data-modal-close class="close"></i>
+        </div>
+        <div class="modal__body">
+          <p class="title">Title</p>
+          <p class="description">
+            Example modal
+          </p>
+          <form id="form">
+            <input id="email" type="email" placeholder="Enter your email" />
+            <label class="error"></label>
+            <button id="submit" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

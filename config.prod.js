@@ -2,13 +2,22 @@ const path = require('path')
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin')
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const cssFilename = 'static/css/[name].[hash:8].css'
+
+const extractTextPluginOptions = {
+  filename: cssFilename,
+  publicPath: Array(cssFilename.split('/').length).join('../')
+}
 
 module.exports = {
   mode: 'development',
   entry: {
     bundle: path.join(__dirname, '/src/index.js'),
+    // Set up an ES6-ish environment
     babel_polyfill: '@babel/polyfill',
     vendor: ['jquery']
   },
@@ -37,32 +46,29 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: loader => [new IconfontWebpackPlugin(loader)]
+              }
             }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: loader => [new IconfontWebpackPlugin(loader)]
-            }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.pug$/,
@@ -73,21 +79,21 @@ module.exports = {
       },
       {
         test: /\.php$/,
-        use: 'file-loader'
+        use: 'file-loader?name=/php/[hash:6].[ext]'
       },
       {
         test: /\.zip$/,
-        use: 'file-loader'
+        use: 'file-loader&name=/files/[name].[ext]'
       },
       {
         test: /\.(jpg|jpeg|gif|png|svg)$/,
         exclude: /node_modules/,
-        use: 'file-loader'
+        use: 'file-loader?name=/img/[hash:6].[ext]'
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
         exclude: /node_modules/,
-        use: 'file-loader'
+        use: 'file-loader?name=/font/[hash:6].[ext]'
       }
     ]
   },
@@ -114,6 +120,7 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
+    new ExtractTextPlugin(extractTextPluginOptions),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
